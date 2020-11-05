@@ -6,24 +6,26 @@ open System.IO
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
 
-    let otherAdd (x: float, y: float) =
-        x + y
+    let text = File.ReadAllText argv.[0]
 
-    let myAdd x y =
-        x + y
+    let splitBySpace (x: string): string [] = x.Split ' '
 
-    let myAdd5 = myAdd 5 6
-    //let floatAdd = myAdd 1.0 2.0
+    let splitText = text.Split(Environment.NewLine)
 
-    //let chicken = otherAdd (5, 5)
+    let wordsCount =
+        splitText
+        |> Array.map splitBySpace
+        |> Array.map Array.length
+        |> Array.sum
 
-    let text = File.ReadAllText "RandomText.txt"
+    let lineCount = splitText.Length
 
-    let splitText = text.Split(System.Environment.NewLine)
+    let charCount =
+        splitText |> Array.map String.length |> Array.sum
 
-    for s in splitText do
-        printfn "%A" s
+    printfn "Line Count %d" lineCount
+    printfn "Word Count %d" wordsCount
+    printfn "Character Count %d" charCount
 
     0 // return an integer exit code
