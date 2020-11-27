@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="RecursiveTypes.fs" />
+    <None Include="InlineExamples.fsx" />
     <Content Include="RandomText.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Program.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
 </Project>

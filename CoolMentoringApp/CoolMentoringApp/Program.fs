@@ -21,7 +21,7 @@ module Chicken =
   let rename newName chicken =
     { chicken with Name = newName }
 
-  let transform sizeToAdd newName (chicken :Chicken) : Chicken = 
+  let transform sizeToAdd newName (chicken: Chicken) : Chicken = 
     {
       Name = newName
       Size = chicken.Size + sizeToAdd
